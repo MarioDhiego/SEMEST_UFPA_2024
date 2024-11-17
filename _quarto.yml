@@ -1,0 +1,53 @@
+# Preâmbulo Geral
+project:
+  type: book
+  output-dir: docs
+book:
+  title: "**SEMEST UFPA 2024**"
+  subtitle: "**DA FAXINA DE DADOS A RELATÓRIOS DINÂMICOS**"
+  date: "02/04/2024"
+  author:
+    - name: "**Mário Diego Rocha Valente**"
+      id: md
+      orcid: 0000-0001-7262-3336
+      url: mario.valente@detran.pa.gov.br
+      email: mario.valente@detran.pa.gov.br
+      corresponding: true
+      affiliation:
+        - Analista de Trânsito
+        - DETRAN-PA
+  page-footer:
+    left: |
+      Was Written by (VALENTE - 2024).
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  search: true
+  repo-url: https://github.com/MarioDhiego
+  repo-actions: [edit, issue]
+  downloads: [pdf, docx]
+  sharing: [twitter, facebook]
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - Exploratoria.qmd
+    - Regressao.qmd
+    - Capitulo3.qmd
+    - Capitulo4.qmd
+    - Capitulo5.qmd
+    - references.qmd
+   
+comments:
+  hypothesis: true
+bibliography: references.bib
+format:
+  html:
+    theme:
+      light: [blue,custom.scss]
+      dark:  [cyborg,custom.scss]
+    toc-title: Índice
+    toc-location: right
+  pdf:
+    documentclass: scrreport
+  epub:
+    cover-image: cover.png
+abstract: ""

@@ -1,0 +1,655 @@
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+# Análise Exploratória de Dados (EDA)
+
+::: {.callout-note icon="TRUE"}
+Mini Roteiro: AED
+
+Um Mini Roteiro para Realizar uma Análise Exploratória de Dados usando a Linguagem de Programação $R_{4.3}$ com auxílio da IDE RStudio.
+:::
+
+Em estatística, a análise exploratória de dados (AED) é uma abordagem à análise de conjuntos de dados de modo a resumir suas características principais, frequentemente com métodos visuais. Um modelo estatístico pode ou não ser usado, mas primariamente a AED tem como objetivo observar o que os dados podem nos dizer além da modelagem formal ou do processo de teste de hipóteses.
+
+A análise exploratória de dados foi promovida pelo estatístico norte-americano **John Tukey**, que incentivava os estatísticos a explorar os dados e possivelmente formular hipóteses que poderiam levar a novas coletas de dados e experimentos.
+
+![](images/John_Tukey-01.jpeg){fig-align="center" width="81"}
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Instação de Pacotes no R
+
+Existem três principais maneiras de instalar pacotes. Em ordem de frequência, são:
+
+### Via CRAN (Comprehensive R Archive Network)
+
+Instale pacotes que não estão na sua biblioteca usando a função **install.packages("nome_do_pacote")**.
+
+Por exemplo:
+
+-   install.packages("magrittr")
+
+### Via Github
+
+Pessoas desenvolvedoras costumam disponibilizar a última versão de seus pacotes no Github, e alguns deles sequer estão no CRAN. Mesmo assim ainda é possível utilizá-los instalando diretamente pelo github. O comando é igualmente simples:
+
+-   devtools::install_github("rstudio/shiny")
+
+### Via arquivo .zip/.tar.gz:
+
+Se você precisar instalar um pacote que está zipado no seu computador (ou em algum servidor), utilize o seguinte comando:
+
+-   install.packages("C:/caminho/para/o/arquivo/zipado/nome-do-pacote.zip", repos = NULL)
+
+É semelhante a instalar pacotes via CRAN, com a diferença que agora o nome do pacote é o caminho inteiro até o arquivo. O parâmetro repos = NULL informa que estamos instalando a partir da máquina local.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Pacotes Base no **R**
+
+Até aqui utilizamos o que chamamos de Base R, ou seja, sintaxe e funções básicas do R usando apenas os pacotes padrões e pré-carregados. Ao digitar ?sum()no console, por exemplo, podemos ver que se trata de uma função do pacote **base**.
+
+-   
+
+    1)  statts
+
+-   
+
+    2)  graphics
+
+-   
+
+    3)  grDevices
+
+-   
+
+    4)  utils
+
+-   
+
+    5)  dataset
+
+-   
+
+    6)  methods
+
+Para ver os pacotes carregados por padrão no R, use o comando seguinte:
+
+```{r pacotebase1a, message=FALSE, warning=FALSE}
+# Pacotes Base no R
+
+getOption("defaultPackages")
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Diretório de Trabalho no **R**
+
+Primeiro Passo é definir o diretório de trabalho no R
+
+```{r diretorio1a, message=FALSE, warning=FALSE}
+
+# setwd: set working directory
+# Definir o Diretório de Trabalho (caminho)
+
+setwd('C:/Users/usuario/Documents/SEMEST_UFPA_2024')
+
+# Mostrar o Caminho Fixado
+getwd()
+
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Carregar Dataset
+
+Um dos primeiros passos de um projeto é importar dados externos para o software R. Os dados são frequentemente armazenados em formatos tabulados como arquivos .csv ou planilhas do tipo .xls.
+
+|               readr                |               readxl               |
+|:----------------------------------:|:----------------------------------:|
+| ![](images/logo2.png){width="180"} | ![](images/logo1.png){width="180"} |
+|                                    |                                    |
+
+### Pacote **readr**
+
+O pacote readr faz parte de um ecosisytema de pacotes **tidyverse**,e é utilizado para importar arquivos de texto, como **.txt** ou **.csv**, para o **R**. Para carregá-lo, rode o código:
+
+```{r pacotereadr1a, message=FALSE, warning=FALSE}
+
+library(readr)
+```
+
+O pacote readr transforma arquivos de textos em **tibbles** usando as funções:
+
+-   **read_csv()**: para arquivos separados por vírgula.
+-   **read_csv2()**: para arquivos separados por ponto e vírgula.
+-   **read_tsv()**: para arquivos separados por tabulação.
+-   **read_delim()**: para arquivos separados por um delimitador genérico. O argumento delim= indica qual caractere separa cada coluna no arquivo de texto.
+-   **read_table()**: para arquivos de texto tabular com colunas separadas por espaço.
+-   **read_fwf()**: para arquivos compactos que devem ter a largura de cada coluna especificada.
+-   **read_log()**: para arquivos padrões de log.
+
+Segue como exemplor a leitura de base de dados via url
+
+```{r pacotereadr1b, message=FALSE, warning=FALSE}
+
+library(readr)
+
+# Dados Separados por Ponto e Vírgula (;)
+Vendas_A = read.csv2("http://raw.githubusercontent.com/Lucianea/Alta/master/vendas.csv")
+
+# Dados separados por Vírgula (,)
+Vendas_B = read.csv("http://raw.githubusercontent.com/Lucianea/Alta/master/vendas1.csv")
+
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+### Pacote **readxl**
+
+Segundo Passo é carregar a base de dados, chamada de mercado. Para isso é necessário instalar o pacote para leitura de arquivo com extensão do tipo **.xlsx** por meio do comando install.packages("readxl").
+
+Posteriormente, ativar o pacote no R com o comando library(readxl). Tendo um detalhe fundamental, que se instala somente um vez o pacote, e se ativa toda vez que for usar.
+
+```{r base1a, message=FALSE, warning=FALSE}
+
+library(readxl)
+setwd('C:/Users/usuario/Documents/SEMEST_UFPA_2024')
+
+mercado <- read_excel('mercado.xlsx')
+mercado2 <- read_excel('mercado2.xlsx')
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Manipulação de Dados no **R**
+
+### Pacote **dplyr**
+
+O dplyr é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em R que fazem uso inteligente dos verbos dplyr e as facilidades do operador pipe tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.
+
+|               dplyr                |
+|:----------------------------------:|
+| ![](images/logo3.png){width="180"} |
+
+
+
+As principais funções do **dplyr** são:
+
+-  1)  select() : extrai colunas de uma tabela na forma de tabela
+-  2)  pull() : extrai uma coluna de uma tabela na forma de vetor
+-  3)  filter() : filtra linhas
+-  4)  distinct() : remove as linhas com valores repetidos
+-  5)  arrange() : reordena ou combina linhas
+-  6)  mutate() : cria/modifica novas colunas no banco original
+-  7)  summarize() : sumariza valores
+-  8)  group_by() : operações por grupos
+-  9)  add_column() : adiciona novas colunas
+-  10) add_row() : adiciona novas linhas
+- 11) rename() : renomeia uma coluna
+
+As principais vantagens de se usar o dplyr em detrimento das funções do R base são:
+
+-   Manipular dados se torna uma tarefa muito mais simples.
+-   O código fica mais intuitivo de ser escrito e mais simples de ser lido.
+-   O pacote dplyr utiliza C e C++ por trás da maioria das funções, o que geralmente torna o código mais rápido.
+-   É possível trabalhar com diferentes fontes de dados, como bases relacionais (SQL)
+
+#### Função **select()**
+
+Para selecionar colunas, utilizamos a função select(). O primeiro argumento da função é a base de dados e os demais argumentos são os nomes das colunas que você gostaria de selecionar. Repare que você não precisa colocar o nome da coluna entre aspas.
+
+```{r dplyr1a, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+Vendas_A %>%
+  dplyr:: select(filial, quinzena, valor_compra) 
+  
+
+Vendas_B %>%
+  dplyr:: select(quinzena, filial, n_itens) 
+
+```
+
+#### Função **filter()**
+
+Para filtrar valores de uma coluna da base, utilizamos a função filter().
+
+```{r dplyr1b, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+Vendas_A %>%
+  dplyr:: filter(filial == "A")
+
+
+Vendas_A %>%
+  dplyr:: filter(filial == "B" & quinzena == 2)
+
+```
+
+#### Função **arrange()**
+
+Para ordenar linhas, utilizamos a função arrange(). O primeiro argumento é a base de dados. Os demais argumentos são as colunas pelas quais queremos ordenar as linhas. No exemplo a seguir, ordenamos as linhas da base por ordem crescente de orçamento.
+
+```{r dplyr1c, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+# Crescente
+Vendas_A %>%
+  dplyr:: arrange(n_itens)
+
+## Decrescente
+Vendas_A %>%
+  dplyr:: arrange(desc(n_itens))
+
+## Decrescente de n_itens E ordema alfabetica de filial
+Vendas_A %>%
+  dplyr:: arrange(-n_itens) %>%
+  dplyr:: arrange(filial)
+
+```
+
+#### Função **mutate()**
+
+Para modificar uma coluna existente ou criar uma nova coluna, utilizamos a função mutate()
+
+```{r dplyr1d, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+## Calcular o valor médio (VM)
+
+Vendas_A %>%
+  dplyr:: mutate(VM = valor_compra/n_itens) %>%
+  dplyr:: select(VM, valor_compra, n_itens) %>%
+  dplyr:: arrange(VM)
+```
+
+O mutate acrescenta novas colunas aos dados originais, ja o transmute cria novas colunas apartir dos dados
+
+#### Função **summarize()**
+
+Sumarização é a técnica de se resumir um conjunto de dados utilizando alguma métrica de interesse. A média, a mediana, a variância, a frequência, a proporção, por exemplo, são tipos de sumarização que trazem diferentes informações sobre uma variável.
+
+Para sumarizar uma coluna da base, utilizamos a função summarize(). O código abaixo resume a coluna orçamento pela sua média.
+
+```{r dplyr1e, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+#numero de observacoes da base de dados 
+Vendas_A %>%
+  dplyr:: summarise(contagem=n())
+
+# numero de filiais distintas
+Vendas_A %>%
+  dplyr:: select(filial) %>%
+  dplyr:: summarise(filial_distintas = n_distinct(filial)) 
+  
+# numero de cupons distinto da filial B
+Vendas_A %>%
+  dplyr:: select(filial, cupom) %>%
+  dplyr:: filter(filial == "B") %>%
+  dplyr:: summarise(cupons_distintos = n_distinct(cupom))
+
+```
+
+#### Função **grupo_by()**
+
+Muitas vezes queremos sumarizar uma coluna agrupada pelas categorias de uma segunda coluna. Para isso, além do summarize, utilizamos também a função group_by().
+
+```{r dplyr1f, message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+#numero de cupons distintos p/ filial 
+Vendas_A %>%
+group_by(filial) %>%
+  summarise(cupons_distintos = n_distinct(cupom))
+
+# total de compras p/ filial
+Vendas_A %>%
+  group_by(filial) %>%
+  summarise(compra_total = sum(valor_compra))
+
+# total de itens p/ filial
+Vendas_A %>%
+  group_by(filial) %>%
+  summarize(item_total = sum(n_itens))
+
+# sumarizar informações em + de um grupo em + colunas
+Vendas_A %>%
+  group_by(filial) %>%
+  summarize(
+    cupons_distintos = n_distinct(cupom),
+    item_total = sum(n_itens),
+    compra_total = sum(valor_compra))
+
+# Media, Desvio-padrao, Minimo e Maximo
+Vendas_A %>%
+  group_by(filial) %>%
+  summarize(Media = mean(valor_compra) %>%
+            round(2),
+            Desvio = sd(valor_compra) %>%
+            round(2), 
+            Minimo = min(valor_compra) %>%
+            round(2),
+            Maximo = max(valor_compra) %>%
+            round(2))
+
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+### Exercício Prático I
+
+Utilizar o banco Vendas_A
+
+-  1)  ordenar os dados pelo n_itens e valor_compra
+-  2)  filtrar valor_compra maior q 150
+-  3)  exibe a selecao com filial no inicio
+-  4)  cria a variavel valor Medio VM: valor_compra/n_itens)
+-  5)  arrendamanento pra uma casa decimal de VM
+-  6)  selecionar filial, n_itens, valor_compra e VM no final
+-  7)  agrupar por filial
+-  8)  calcular media, mediana, desvio, minimo e maximo
+
+
+
+```{r exercicio1a, message=FALSE, warning=FALSE}
+Vendas_A %>%
+  dplyr:: arrange(n_itens, valor_compra) %>%
+  dplyr:: filter(valor_compra > 150) %>%
+  dplyr:: select(filial, n_itens,valor_compra) %>%
+  dplyr:: mutate(VM = valor_compra/n_itens) %>%
+  dplyr:: mutate(VM = round(valor_compra/n_itens, 1)) %>%
+  dplyr:: select(filial, n_itens, valor_compra, VM) 
+
+Vendas_A %>%
+  dplyr:: group_by(filial) %>%
+  dplyr:: summarize(Media = mean(valor_compra) %>%
+              round(2),
+            Mediana = median(valor_compra) %>%
+              round(2),
+            Desvio = sd(valor_compra) %>%
+              round(2), 
+            Minimo = min(valor_compra) %>%
+              round(2),
+            Maximo = max(valor_compra) %>%
+              round(2))
+
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Pacote **DT**
+
+A importância da apresentação dos dados é fundamental no início da faxina dos dados.
+
+Para a apresentação dos dataset contamos com alguns pacotes na linguagem R que possibilitam a apresentação de tabelas de maneira bastante satisfatória (de forma elegante e até interativa).
+
+O **pacote DT** é uma excelente opção quando se trata de uma apresentação rápida, geral e dinâmica sobre a base de dados.
+
+O pacote DT fornece uma interface R para a biblioteca JavaScript **DataTables**. Objetos de dados R (matrizes ou quadros de dados) podem ser exibidos como tabelas em páginas HTML, e DataTables fornece filtragem, paginação, classificação e muitos outros recursos nas tabelas.
+
+Segue a base de dados (n=80) referentes as características dos Funcionários que trabalham no Supermercado Formosa, na cidade de Belém, Estado do Pará, em 2023.
+
+```{r dataset1}
+
+library(DT)
+
+datatable(mercado,
+          class = 'cell-border stripe',
+          editable = 'cell',
+          caption = 'Tabela 01: Banco de Dados sobre Funcionários do Supermercado Formosa, Belém - Pará, 2023.')
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Identificar os Tipos de Variáveis
+
+Utilizamos a função **diagnose()**, do **paocte dlookr** na linguagem R, para identificar os tipos de variáveis para análise.
+
+A função diagnose() da biblioteca dlookr que retorna por variável qual o tipo dela, contagem de valores faltantes, frequência de faltantes em relação à base toda.
+
+```{r dlookr1, message=FALSE, warning=FALSE}
+
+library(dlookr)
+
+mercado %>% dlookr::diagnose()
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Variáveis Qualitativas
+
+### Tabelas de Frequência: Simples
+
+```{r tab1, message=FALSE, warning=FALSE}
+
+table(mercado2$CARGO)
+table(mercado2$EDUCAÇÃO)
+table(mercado2$LOCAL)
+```
+
+### Tabelas de Frequência: Proporção
+
+```{r tab2, message=FALSE, warning=FALSE}
+
+prop.table(table(mercado2$CARGO))*100
+prop.table(table(mercado2$EDUCAÇÃO))*100
+prop.table(table(mercado2$LOCAL))*100
+```
+
+### Tabelas de Contigência
+
+O **pacote gtsummary** fornece uma maneira elegante e flexível de criar tabelas analíticas e de resumo prontas para publicação usando a linguagem de programação R.
+
+A função **tbl_summary()** calcula estatísticas descritivas para variáveis contínuas, categóricas e dicotômicas em R e apresenta os resultados em uma tabela de resumo bonita e personalizável, pronta para publicação.
+
+```{r contigencia1, message=FALSE, warning=FALSE}
+library(dplyr)
+library(gtsummary)
+
+mercado %>% 
+  select( 
+    LOCAL,
+    CARGO,
+    IDADE,
+    TEMPOCASA,
+    EDUCAÇÃO,
+    SALARIO) %>% 
+  tbl_summary(by = LOCAL,
+              statistic = list(all_continuous() ~ "{mean} ({sd})")) %>%
+  modify_header(label = "**VARIAVEIS**") %>%
+  modify_caption("Tabela 01. Característica Salariais Formosa") %>%
+  add_n() %>%
+  add_difference() %>%
+  bold_p(t = 0.05) %>%
+  bold_labels() %>%
+  italicize_levels()
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Variáveis Quantitativas
+
+### Medidas Resumo Geral
+
+A função mais famosa para a estatística descritiva no R, é a chamada de summary(), que dá a amplitude dos dados.
+
+A função **summary()** do **pacote basic**, retorna boa parte da estatística descritiva como os quartis, média, mediana, mínimo, máximo e as espécies que há na tabela. É importante saber que de ante-mão, quanto mais próxima a mediana estiver da média, maior a probablidade de a destribuição dos dados ser gaussiana. Esta forma de descrição é mais utilizada para uma obtenção rápida dos parâmetros dos dados.
+
+```{r medida1, message=FALSE, warning=FALSE}
+
+summary(mercado2$IDADE)
+summary(mercado2$TEMPOCASA)
+summary(mercado2$SALARIO)
+```
+
+### Interpretação p/ Salário
+
+-   o 1º quartil(1 st Qu.) indica que 25% dos funcionários têm renda salarial menor ou igual a R\$ 4.894 e o 3º quartil(3 rd Qu.) indica que 75% têm renda menor ou igual a R\$ 6.306.
+
+-   Estes dois valores indicam que 50% dos funcionários tem renda nesse intervalo, o que já nos dá uma idéia de variabilidade da Renda.
+
+-   Quanto maior a diferença entre o 3º e o 1º quartil, maior a dispersão da variável.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+### Análise Geral
+
+O **pacote skimr** é um função que nos fornece medidas resumo de variáveis de uma base de dados de interesse. Ele pode ser visto como uma alternativa mais completa para a função **summary()** do R Base para gerar uma tabela geral sobre a base de dados, fornecendo um primeiro olhar sobre o fenômeno estudado.
+
+```{r skim1, message=FALSE, warning=FALSE}
+library(skimr)
+
+mercado |> skim()
+
+```
+
+Veja que a saída da função skim mostra uma visão geral da base de dados, nos dando informações como número de linhas, número de colunas, e os tipos das colunas
+
+Ela fornece também informações individuais sobre cada coluna da base, separando as colunas por tipo: cada tipo nos dá um conjunto diferente de estatísticas, que façam sentido para aquele tipo de dado.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+### Relação Gráfica: Variáveis Quantitativas
+
+#### Histograma com Boxplot
+
+Conhecer como as variáveis se relacionam também é um passo muito importante antes da elaboração de um modelo quantitativo.
+
+```{r box1, message=FALSE, warning=FALSE}
+
+library(magrittr)
+library(dplyr)
+
+nf = layout(mat = matrix(c(1,2),2,1, byrow = TRUE), height = c(1,2))
+
+par(mar = c(4.1, 3.1, 1.1, 2.1))
+
+boxplot(mercado$SALARIO,
+        col = "Red",
+        border = "Black",
+        horizontal = TRUE,
+        notch = TRUE)
+hist(mercado$SALARIO, 
+     col = "blue",
+     freq = TRUE,
+     main = "Histograma com BoxPlot",
+     xlab = "R$ Salário",
+     ylab = "Frequência")
+```
+
+
+
+```{r box2, message=FALSE, warning=FALSE}
+library(magrittr)
+library(dplyr)
+
+nf = layout(mat = matrix(c(1,2),2,1, byrow = TRUE),height = c(1,2))
+
+par(mar = c(4.1, 3.1, 1.1, 2.1))
+
+boxplot(mercado$IDADE,
+        col = "Red",
+        border = "Black",
+        horizontal = TRUE,
+        notch = TRUE)
+hist(mercado$IDADE, 
+     col = "blue",
+     freq = TRUE,
+     main = "Histograma com BoxPlot",
+     xlab = "Idade (anos)",
+     ylab = "Frequência")
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+#### Diagrama de Ramos-e-folhas
+
+Vamos investigar como está o comportamento das variáveis através de uma ferramenta chama **diagrama de ramos e folhas**. Para isso vamos usar o comando abaixo:
+
+```{r ramos1, message=FALSE, warning=FALSE}
+stem(mercado2$IDADE)
+stem(mercado2$SALARIO)
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+#### Diagrama de Dispersão
+
+A função **pairs.panels()** do **pacote psych** no R gera um figura com os gráficos de dispersão 2 a 2, os histogramas de cada variável e as correlações das variaveis 2 a 2.
+
+```{r corr1, message=FALSE, warning=FALSE}
+
+library(psych)
+pairs.panels(mercado,
+             method = "pearson",
+             density = TRUE,  
+             ellipses = TRUE,
+             smoother = TRUE)
+
+```
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::

@@ -1,0 +1,34 @@
+
+
+```{=html}
+<style>
+body{text-align: justify}
+</style>
+```
+
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+
+# Prefácio {.unnumbered}
+
+Um dos mais relevantes desafios, no atual cenário competitivo, refere-se à efetiva aplicação das técnicas analíticas no equacionamento e resolução dos problemas empresariais. O desenvolvimento de modelos de análises aplicados à realidade empresarial tornou-se uma competência crítica em todos os setores de atividade econômica. Esta habilidade é imperativa na esfera governamental e nas organizações sem finalidades lucrativas.
+
+O profissionais que atuam nos projetos de natureza analítica enfrentam desafios peculiares. Em geral, as organizações demandam soluções práticas e de rápida implantação. Por outro lado, existe um ritmo intenso de geração de novas **Frameworks**, **Bibliotecas** e ferramentas de software bem como do aperfeiçoamento contínuo dos algoritmos de análise.
+
+
+As técnicas analíticas aqui expostas são aquelas que devem fazer parte do repertório obrigatório da **Análise de Dados**.
+
+
+Este livro foi escrito com objetivo de permitir que estudantes e pesquisadores entendam e apliquem diferentes algoritmos sem apronfundar-se nas teorias que os fundamentam. Preferiu-se apresentar os principais conceitos de forma intuitiva, para que o usuário compreenda a lógica de cada algoritmo, para que finalidade deve ser utilizado, quais os passos a seguir para aplicá-lo corretamente utilizando o sotware **R** e suas vantagens e limitações quando comparado com outros algritmos que podem ser utilizados no mesmo problema.
+
+
+
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
