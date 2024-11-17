@@ -480,8 +480,8 @@ Note
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">readr</th>
-<th style="text-align: center;">readxl</th>
+<th style="text-align: center;">Pacote readr</th>
+<th style="text-align: center;">Pacote readxl</th>
 </tr>
 </thead>
 <tbody>
@@ -553,7 +553,7 @@ Note
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">dplyr</th>
+<th style="text-align: center;">Pacote dplyr</th>
 </tr>
 </thead>
 <tbody>
@@ -605,6 +605,11 @@ Note
 <li>O pacote dplyr utiliza C e C++ por trás da maioria das funções, o que geralmente torna o código mais rápido.</li>
 <li>É possível trabalhar com diferentes fontes de dados, como bases relacionais (SQL)</li>
 </ul>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
 <section id="função-select" class="level4" data-number="1.5.1.1">
 <h4 data-number="1.5.1.1" class="anchored" data-anchor-id="função-select"><span class="header-section-number">1.5.1.1</span> Função <strong>select()</strong></h4>
 <p>Para selecionar colunas, utilizamos a função select(). O primeiro argumento da função é a base de dados e os demais argumentos são os nomes das colunas que você gostaria de selecionar. Repare que você não precisa colocar o nome da coluna entre aspas.</p>
@@ -668,6 +673,11 @@ Note
 23        1      C      60</code></pre>
 </div>
 </div>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
 </section>
 <section id="função-filter" class="level4" data-number="1.5.1.2">
 <h4 data-number="1.5.1.2" class="anchored" data-anchor-id="função-filter"><span class="header-section-number">1.5.1.2</span> Função <strong>filter()</strong></h4>
@@ -696,6 +706,11 @@ Note
 4   206      B       856.00      20            15        2
 5   208      B       271.26      22            10        2
 6   212      B       220.00     100             2        2</code></pre>
+</div>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
 </div>
 </div>
 </section>
@@ -794,6 +809,11 @@ Note
 23   301      C        12.25       1             0        1</code></pre>
 </div>
 </div>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
 </section>
 <section id="função-mutate" class="level4" data-number="1.5.1.4">
 <h4 data-number="1.5.1.4" class="anchored" data-anchor-id="função-mutate"><span class="header-section-number">1.5.1.4</span> Função <strong>mutate()</strong></h4>
@@ -835,6 +855,11 @@ Note
 </div>
 </div>
 <p>O mutate acrescenta novas colunas aos dados originais, ja o transmute cria novas colunas apartir dos dados</p>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
+</div>
+</div>
 </section>
 <section id="função-summarize" class="level4" data-number="1.5.1.5">
 <h4 data-number="1.5.1.5" class="anchored" data-anchor-id="função-summarize"><span class="header-section-number">1.5.1.5</span> Função <strong>summarize()</strong></h4>
@@ -866,6 +891,11 @@ Note
 <div class="cell-output cell-output-stdout">
 <pre><code>  cupons_distintos
 1               12</code></pre>
+</div>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width: 100%;">
+
 </div>
 </div>
 </section>
@@ -1035,6 +1065,18 @@ Note
 <h2 data-number="1.6" class="anchored" data-anchor-id="pacote-dt"><span class="header-section-number">1.6</span> Pacote <strong>DT</strong></h2>
 <p>A importância da apresentação dos dados é fundamental no início da faxina dos dados.</p>
 <p>Para a apresentação dos dataset contamos com alguns pacotes na linguagem R que possibilitam a apresentação de tabelas de maneira bastante satisfatória (de forma elegante e até interativa).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pacote DT: datatable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/pacote_DT.png" class="img-fluid" width="180"></td>
+</tr>
+</tbody>
+</table>
 <p>O <strong>pacote DT</strong> é uma excelente opção quando se trata de uma apresentação rápida, geral e dinâmica sobre a base de dados.</p>
 <p>O pacote DT fornece uma interface R para a biblioteca JavaScript <strong>DataTables</strong>. Objetos de dados R (matrizes ou quadros de dados) podem ser exibidos como tabelas em páginas HTML, e DataTables fornece filtragem, paginação, classificação e muitos outros recursos nas tabelas.</p>
 <p>Segue a base de dados (n=80) referentes as características dos Funcionários que trabalham no Supermercado Formosa, na cidade de Belém, Estado do Pará, em 2023.</p>
@@ -1046,8 +1088,8 @@ Note
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">editable =</span> <span class="st">'cell'</span>,</span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">caption =</span> <span class="st">'Tabela 01: Banco de Dados sobre Funcionários do Supermercado Formosa, Belém - Pará, 2023.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d13e0dac6b4020951e4d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d13e0dac6b4020951e4d">{"x":{"filter":"none","vertical":false,"caption":"<caption>Tabela 01: Banco de Dados sobre Funcionários do Supermercado Formosa, Belém - Pará, 2023.<\/caption>","editable":{"target":"cell","disable":{"columns":null},"numeric":[4,5,6],"date":[]},"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80"],["SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR"],["GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","GERENTE","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","DIRETOR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","DIRETOR","AUXILIAR","GERENTE","GERENTE","GERENTE","GERENTE","DIRETOR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","DIRETOR","DIRETOR","DIRETOR","GERENTE","DIRETOR","PRESIDENTE","DIRETOR","DIRETOR","AUXILIAR","GERENTE","AUXILIAR","DIRETOR","GERENTE","AUXILIAR","DIRETOR","DIRETOR","AUXILIAR"],["INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","CAPITAL","CAPITAL","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL"],[30,32,33,34,36,37,37,37,38,38,39,39,40,40,40,40,42,43,43,43,44,44,45,45,45,45,45,45,46,46,46,46,46,47,47,47,47,48,48,49,49,50,50,50,50,50,51,51,51,52,52,52,52,53,54,55,55,55,55,56,56,57,58,58,59,60,60,60,60,62,63,64,65,65,65,65,67,69,70,72],[1,4,2,3,1,1,0,6,13,8,5,0,3,10,11,0,5,2,2,13,6,1,3,3,2,2,15,15,1,10,6,5,16,2,3,19,3,4,15,6,15,6,4,8,6,17,6,16,15,19,6,12,16,18,19,17,13,19,13,22,25,19,16,17,16,14,21,17,18,16,22,18,16,22,15,25,15,21,22,22],[4279.5,4575.4,4735.6,4863.1,5355.8,4567.1,4434.6,4894.3,5476.3,5624.7,5309.8,5324.5,4711,4817.1,5883.7,5598.6,5082.1,4607.6,4703.8,5747.9,4715.8,4872.7,4186.6,4540.1,4894.3,4894.3,5815.9,6051.3,4667.5,4817.1,5309.8,4918,5316.3,4894.3,5131,5905.2,6120.1,4791.9,6235.1,5254.4,5131.2,5087.4,5136.9,5143.2,5905.2,6051.3,5069.4,6235.1,5905.2,5501.5,5905.2,6556.4,6124.2,6197.1,6796.9,5951.7,6087.1,5686.5,6269.8,6583.5,6583.9,7481.2,5660.4,6583.9,6269.8,6415.8,6920.5,7088.8,12465.8,6920.5,7481.2,6556.4,6636.6,6583.9,6666,7257,6235.1,7257,7481.2,6415.8]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>EDUCAÇÃO<\/th>\n      <th>CARGO<\/th>\n      <th>LOCAL<\/th>\n      <th>IDADE<\/th>\n      <th>TEMPOCASA<\/th>\n      <th>SALARIO<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"EDUCAÇÃO","targets":1},{"name":"CARGO","targets":2},{"name":"LOCAL","targets":3},{"name":"IDADE","targets":4},{"name":"TEMPOCASA","targets":5},{"name":"SALARIO","targets":6}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-28ff69047ea7069997b3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-28ff69047ea7069997b3">{"x":{"filter":"none","vertical":false,"caption":"<caption>Tabela 01: Banco de Dados sobre Funcionários do Supermercado Formosa, Belém - Pará, 2023.<\/caption>","editable":{"target":"cell","disable":{"columns":null},"numeric":[4,5,6],"date":[]},"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80"],["SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SECUNDÁRIO","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR","SUPERIOR"],["GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","GERENTE","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","AUXILIAR","GERENTE","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","DIRETOR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","AUXILIAR","AUXILIAR","GERENTE","AUXILIAR","GERENTE","GERENTE","DIRETOR","AUXILIAR","GERENTE","GERENTE","GERENTE","GERENTE","DIRETOR","AUXILIAR","AUXILIAR","AUXILIAR","AUXILIAR","DIRETOR","DIRETOR","DIRETOR","GERENTE","DIRETOR","PRESIDENTE","DIRETOR","DIRETOR","AUXILIAR","GERENTE","AUXILIAR","DIRETOR","GERENTE","AUXILIAR","DIRETOR","DIRETOR","AUXILIAR"],["INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","CAPITAL","CAPITAL","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","INTERIOR","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","CAPITAL","INTERIOR","INTERIOR","CAPITAL","CAPITAL","CAPITAL","INTERIOR","CAPITAL","CAPITAL","CAPITAL"],[30,32,33,34,36,37,37,37,38,38,39,39,40,40,40,40,42,43,43,43,44,44,45,45,45,45,45,45,46,46,46,46,46,47,47,47,47,48,48,49,49,50,50,50,50,50,51,51,51,52,52,52,52,53,54,55,55,55,55,56,56,57,58,58,59,60,60,60,60,62,63,64,65,65,65,65,67,69,70,72],[1,4,2,3,1,1,0,6,13,8,5,0,3,10,11,0,5,2,2,13,6,1,3,3,2,2,15,15,1,10,6,5,16,2,3,19,3,4,15,6,15,6,4,8,6,17,6,16,15,19,6,12,16,18,19,17,13,19,13,22,25,19,16,17,16,14,21,17,18,16,22,18,16,22,15,25,15,21,22,22],[4279.5,4575.4,4735.6,4863.1,5355.8,4567.1,4434.6,4894.3,5476.3,5624.7,5309.8,5324.5,4711,4817.1,5883.7,5598.6,5082.1,4607.6,4703.8,5747.9,4715.8,4872.7,4186.6,4540.1,4894.3,4894.3,5815.9,6051.3,4667.5,4817.1,5309.8,4918,5316.3,4894.3,5131,5905.2,6120.1,4791.9,6235.1,5254.4,5131.2,5087.4,5136.9,5143.2,5905.2,6051.3,5069.4,6235.1,5905.2,5501.5,5905.2,6556.4,6124.2,6197.1,6796.9,5951.7,6087.1,5686.5,6269.8,6583.5,6583.9,7481.2,5660.4,6583.9,6269.8,6415.8,6920.5,7088.8,12465.8,6920.5,7481.2,6556.4,6636.6,6583.9,6666,7257,6235.1,7257,7481.2,6415.8]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>EDUCAÇÃO<\/th>\n      <th>CARGO<\/th>\n      <th>LOCAL<\/th>\n      <th>IDADE<\/th>\n      <th>TEMPOCASA<\/th>\n      <th>SALARIO<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"EDUCAÇÃO","targets":1},{"name":"CARGO","targets":2},{"name":"LOCAL","targets":3},{"name":"IDADE","targets":4},{"name":"TEMPOCASA","targets":5},{"name":"SALARIO","targets":6}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="progress">
@@ -1059,6 +1101,18 @@ Note
 <section id="identificar-os-tipos-de-variáveis" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="identificar-os-tipos-de-variáveis"><span class="header-section-number">1.7</span> Identificar os Tipos de Variáveis</h2>
 <p>Utilizamos a função <strong>diagnose()</strong>, do <strong>paocte dlookr</strong> na linguagem R, para identificar os tipos de variáveis para análise.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pacote dlookr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/pacote_dlookr.png" class="img-fluid" width="180"></td>
+</tr>
+</tbody>
+</table>
 <p>A função diagnose() da biblioteca dlookr que retorna por variável qual o tipo dela, contagem de valores faltantes, frequência de faltantes em relação à base toda.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
@@ -1133,6 +1187,18 @@ SECUNDÁRIO   SUPERIOR
 <section id="tabelas-de-contigência" class="level3" data-number="1.8.3">
 <h3 data-number="1.8.3" class="anchored" data-anchor-id="tabelas-de-contigência"><span class="header-section-number">1.8.3</span> Tabelas de Contigência</h3>
 <p>O <strong>pacote gtsummary</strong> fornece uma maneira elegante e flexível de criar tabelas analíticas e de resumo prontas para publicação usando a linguagem de programação R.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pacote gtsummary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/pacote_gtsummary.png" class="img-fluid" width="180"></td>
+</tr>
+</tbody>
+</table>
 <p>A função <strong>tbl_summary()</strong> calcula estatísticas descritivas para variáveis contínuas, categóricas e dicotômicas em R e apresenta os resultados em uma tabela de resumo bonita e personalizável, pronta para publicação.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -1156,23 +1222,23 @@ SECUNDÁRIO   SUPERIOR
 <span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">italicize_levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="lrcnrnxkak" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lrcnrnxkak table {
+<div id="qhltbachup" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qhltbachup table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lrcnrnxkak thead, #lrcnrnxkak tbody, #lrcnrnxkak tfoot, #lrcnrnxkak tr, #lrcnrnxkak td, #lrcnrnxkak th {
+#qhltbachup thead, #qhltbachup tbody, #qhltbachup tfoot, #qhltbachup tr, #qhltbachup td, #qhltbachup th {
   border-style: none;
 }
 
-#lrcnrnxkak p {
+#qhltbachup p {
   margin: 0;
   padding: 0;
 }
 
-#lrcnrnxkak .gt_table {
+#qhltbachup .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1198,12 +1264,12 @@ SECUNDÁRIO   SUPERIOR
   border-left-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_caption {
+#qhltbachup .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lrcnrnxkak .gt_title {
+#qhltbachup .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1215,7 +1281,7 @@ SECUNDÁRIO   SUPERIOR
   border-bottom-width: 0;
 }
 
-#lrcnrnxkak .gt_subtitle {
+#qhltbachup .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1227,7 +1293,7 @@ SECUNDÁRIO   SUPERIOR
   border-top-width: 0;
 }
 
-#lrcnrnxkak .gt_heading {
+#qhltbachup .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1239,13 +1305,13 @@ SECUNDÁRIO   SUPERIOR
   border-right-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_bottom_border {
+#qhltbachup .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_col_headings {
+#qhltbachup .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1260,7 +1326,7 @@ SECUNDÁRIO   SUPERIOR
   border-right-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_col_heading {
+#qhltbachup .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1280,7 +1346,7 @@ SECUNDÁRIO   SUPERIOR
   overflow-x: hidden;
 }
 
-#lrcnrnxkak .gt_column_spanner_outer {
+#qhltbachup .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1292,15 +1358,15 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 4px;
 }
 
-#lrcnrnxkak .gt_column_spanner_outer:first-child {
+#qhltbachup .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lrcnrnxkak .gt_column_spanner_outer:last-child {
+#qhltbachup .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lrcnrnxkak .gt_column_spanner {
+#qhltbachup .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1312,11 +1378,11 @@ SECUNDÁRIO   SUPERIOR
   width: 100%;
 }
 
-#lrcnrnxkak .gt_spanner_row {
+#qhltbachup .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lrcnrnxkak .gt_group_heading {
+#qhltbachup .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1342,7 +1408,7 @@ SECUNDÁRIO   SUPERIOR
   text-align: left;
 }
 
-#lrcnrnxkak .gt_empty_group_heading {
+#qhltbachup .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1357,15 +1423,15 @@ SECUNDÁRIO   SUPERIOR
   vertical-align: middle;
 }
 
-#lrcnrnxkak .gt_from_md > :first-child {
+#qhltbachup .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lrcnrnxkak .gt_from_md > :last-child {
+#qhltbachup .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lrcnrnxkak .gt_row {
+#qhltbachup .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1384,7 +1450,7 @@ SECUNDÁRIO   SUPERIOR
   overflow-x: hidden;
 }
 
-#lrcnrnxkak .gt_stub {
+#qhltbachup .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1397,7 +1463,7 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 5px;
 }
 
-#lrcnrnxkak .gt_stub_row_group {
+#qhltbachup .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1411,15 +1477,15 @@ SECUNDÁRIO   SUPERIOR
   vertical-align: top;
 }
 
-#lrcnrnxkak .gt_row_group_first td {
+#qhltbachup .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lrcnrnxkak .gt_row_group_first th {
+#qhltbachup .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lrcnrnxkak .gt_summary_row {
+#qhltbachup .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1429,16 +1495,16 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 5px;
 }
 
-#lrcnrnxkak .gt_first_summary_row {
+#qhltbachup .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_first_summary_row.thick {
+#qhltbachup .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lrcnrnxkak .gt_last_summary_row {
+#qhltbachup .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1448,7 +1514,7 @@ SECUNDÁRIO   SUPERIOR
   border-bottom-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_grand_summary_row {
+#qhltbachup .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1458,7 +1524,7 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 5px;
 }
 
-#lrcnrnxkak .gt_first_grand_summary_row {
+#qhltbachup .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1468,7 +1534,7 @@ SECUNDÁRIO   SUPERIOR
   border-top-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_last_grand_summary_row_top {
+#qhltbachup .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1478,11 +1544,11 @@ SECUNDÁRIO   SUPERIOR
   border-bottom-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_striped {
+#qhltbachup .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lrcnrnxkak .gt_table_body {
+#qhltbachup .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1491,7 +1557,7 @@ SECUNDÁRIO   SUPERIOR
   border-bottom-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_footnotes {
+#qhltbachup .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1505,7 +1571,7 @@ SECUNDÁRIO   SUPERIOR
   border-right-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_footnote {
+#qhltbachup .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1514,7 +1580,7 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 5px;
 }
 
-#lrcnrnxkak .gt_sourcenotes {
+#qhltbachup .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1528,7 +1594,7 @@ SECUNDÁRIO   SUPERIOR
   border-right-color: #D3D3D3;
 }
 
-#lrcnrnxkak .gt_sourcenote {
+#qhltbachup .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1536,72 +1602,72 @@ SECUNDÁRIO   SUPERIOR
   padding-right: 5px;
 }
 
-#lrcnrnxkak .gt_left {
+#qhltbachup .gt_left {
   text-align: left;
 }
 
-#lrcnrnxkak .gt_center {
+#qhltbachup .gt_center {
   text-align: center;
 }
 
-#lrcnrnxkak .gt_right {
+#qhltbachup .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lrcnrnxkak .gt_font_normal {
+#qhltbachup .gt_font_normal {
   font-weight: normal;
 }
 
-#lrcnrnxkak .gt_font_bold {
+#qhltbachup .gt_font_bold {
   font-weight: bold;
 }
 
-#lrcnrnxkak .gt_font_italic {
+#qhltbachup .gt_font_italic {
   font-style: italic;
 }
 
-#lrcnrnxkak .gt_super {
+#qhltbachup .gt_super {
   font-size: 65%;
 }
 
-#lrcnrnxkak .gt_footnote_marks {
+#qhltbachup .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lrcnrnxkak .gt_asterisk {
+#qhltbachup .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lrcnrnxkak .gt_indent_1 {
+#qhltbachup .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lrcnrnxkak .gt_indent_2 {
+#qhltbachup .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lrcnrnxkak .gt_indent_3 {
+#qhltbachup .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lrcnrnxkak .gt_indent_4 {
+#qhltbachup .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lrcnrnxkak .gt_indent_5 {
+#qhltbachup .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lrcnrnxkak .katex-display {
+#qhltbachup .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lrcnrnxkak div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qhltbachup div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1822,6 +1888,18 @@ SECUNDÁRIO   SUPERIOR
 <section id="análise-geral" class="level3" data-number="1.9.3">
 <h3 data-number="1.9.3" class="anchored" data-anchor-id="análise-geral"><span class="header-section-number">1.9.3</span> Análise Geral</h3>
 <p>O <strong>pacote skimr</strong> é um função que nos fornece medidas resumo de variáveis de uma base de dados de interesse. Ele pode ser visto como uma alternativa mais completa para a função <strong>summary()</strong> do R Base para gerar uma tabela geral sobre a base de dados, fornecendo um primeiro olhar sobre o fenômeno estudado.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pacote skimr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/pacote_skimr.png" class="img-fluid" width="180"></td>
+</tr>
+</tbody>
+</table>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
