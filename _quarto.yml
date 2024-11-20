@@ -5,7 +5,7 @@ project:
 book:
   title: "**SEMEST UFPA 2024**"
   subtitle: "**DA FAXINA DE DADOS A RELATÓRIOS DINÂMICOS**"
-  date: "02/04/2024"
+  date: "11/20/2024"
   author:
     - name: "**Mário Diego Rocha Valente**"
       id: md
@@ -17,10 +17,11 @@ book:
         - Analista de Trânsito
         - DETRAN-PA
   page-footer:
+    background: blue
     left: |
-      Was Written by (VALENTE - 2024).
+      (VALENTE - 2024).
     right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
+      UFPA.
   search: true
   repo-url: https://github.com/MarioDhiego
   repo-actions: [edit, issue]
@@ -35,19 +36,30 @@ book:
     - Capitulo4.qmd
     - Capitulo5.qmd
     - references.qmd
-   
 comments:
   hypothesis: true
+title-block-banner: true 
 bibliography: references.bib
 format:
   html:
+    code-fold: true
+    code-tools: true
+    code-link: true
     theme:
       light: [blue,custom.scss]
       dark:  [cyborg,custom.scss]
+    toc: true
+    number_sections: true
+    toc_float: true
     toc-title: Índice
     toc-location: right
-  pdf:
-    documentclass: scrreport
-  epub:
-    cover-image: cover.png
-abstract: ""
+  pdf: 
+    documentclass: report
+  epub: default
+    
+
+
+
+
+
+

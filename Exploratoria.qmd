@@ -1,8 +1,10 @@
+
 ```{=html}
 <style>
   body{text-align: justify}
 </style>
 ```
+
 
 :::: progress
 ::: {.progress-bar style="width: 100%;"}
@@ -63,29 +65,12 @@ Se você precisar instalar um pacote que está zipado no seu computador (ou em a
 
 Até aqui utilizamos o que chamamos de Base R, ou seja, sintaxe e funções básicas do R usando apenas os pacotes padrões e pré-carregados. Ao digitar ?sum()no console, por exemplo, podemos ver que se trata de uma função do pacote **base**.
 
--   
-
-    1)  statts
-
--   
-
-    2)  graphics
-
--   
-
-    3)  grDevices
-
--   
-
-    4)  utils
-
--   
-
-    5)  dataset
-
--   
-
-    6)  methods
+-  1)  statts
+-  2)  graphics
+-  3)  grDevices
+-  4)  utils
+-  5)  dataset
+-  6)  methods
 
 Para ver os pacotes carregados por padrão no R, use o comando seguinte:
 
@@ -125,7 +110,7 @@ getwd()
 
 Um dos primeiros passos de um projeto é importar dados externos para o software R. Os dados são frequentemente armazenados em formatos tabulados como arquivos .csv ou planilhas do tipo .xls.
 
-|               readr                |               readxl               |
+|          Pacote readr              |         Pacote readxl              |
 |:----------------------------------:|:----------------------------------:|
 | ![](images/logo2.png){width="180"} | ![](images/logo1.png){width="180"} |
 |                                    |                                    |
@@ -151,7 +136,7 @@ O pacote readr transforma arquivos de textos em **tibbles** usando as funções:
 
 Segue como exemplor a leitura de base de dados via url
 
-```{r pacotereadr1b, message=FALSE, warning=FALSE}
+```{r pacotereadr1ab, message=FALSE, warning=FALSE}
 
 library(readr)
 
@@ -194,25 +179,55 @@ mercado2 <- read_excel('mercado2.xlsx')
 
 O dplyr é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em R que fazem uso inteligente dos verbos dplyr e as facilidades do operador pipe tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.
 
-|               dplyr                |
+|          Pacote  dplyr             |
 |:----------------------------------:|
 | ![](images/logo3.png){width="180"} |
 
-
-
 As principais funções do **dplyr** são:
 
--  1)  select() : extrai colunas de uma tabela na forma de tabela
--  2)  pull() : extrai uma coluna de uma tabela na forma de vetor
--  3)  filter() : filtra linhas
--  4)  distinct() : remove as linhas com valores repetidos
--  5)  arrange() : reordena ou combina linhas
--  6)  mutate() : cria/modifica novas colunas no banco original
--  7)  summarize() : sumariza valores
--  8)  group_by() : operações por grupos
--  9)  add_column() : adiciona novas colunas
--  10) add_row() : adiciona novas linhas
-- 11) rename() : renomeia uma coluna
+-   
+
+    1)  select() : extrai colunas de uma tabela na forma de tabela
+
+-   
+
+    2)  pull() : extrai uma coluna de uma tabela na forma de vetor
+
+-   
+
+    3)  filter() : filtra linhas
+
+-   
+
+    4)  distinct() : remove as linhas com valores repetidos
+
+-   
+
+    5)  arrange() : reordena ou combina linhas
+
+-   
+
+    6)  mutate() : cria/modifica novas colunas no banco original
+
+-   
+
+    7)  summarize() : sumariza valores
+
+-   
+
+    8)  group_by() : operações por grupos
+
+-   
+
+    9)  add_column() : adiciona novas colunas
+
+-   
+
+    10) add_row() : adiciona novas linhas
+
+-   
+
+    11) rename() : renomeia uma coluna
 
 As principais vantagens de se usar o dplyr em detrimento das funções do R base são:
 
@@ -220,6 +235,12 @@ As principais vantagens de se usar o dplyr em detrimento das funções do R base
 -   O código fica mais intuitivo de ser escrito e mais simples de ser lido.
 -   O pacote dplyr utiliza C e C++ por trás da maioria das funções, o que geralmente torna o código mais rápido.
 -   É possível trabalhar com diferentes fontes de dados, como bases relacionais (SQL)
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
 
 #### Função **select()**
 
@@ -235,8 +256,13 @@ Vendas_A %>%
 
 Vendas_B %>%
   dplyr:: select(quinzena, filial, n_itens) 
-
 ```
+
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
 
 #### Função **filter()**
 
@@ -247,13 +273,19 @@ Para filtrar valores de uma coluna da base, utilizamos a função filter().
 library(dplyr)
 
 Vendas_A %>%
-  dplyr:: filter(filial == "A")
-
+  dplyr:: filter(filial == "A") %>%
+  head()
 
 Vendas_A %>%
-  dplyr:: filter(filial == "B" & quinzena == 2)
-
+  dplyr:: filter(filial == "B" & quinzena == 2) %>%
+  head()
 ```
+
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
 
 #### Função **arrange()**
 
@@ -265,18 +297,26 @@ library(dplyr)
 
 # Crescente
 Vendas_A %>%
-  dplyr:: arrange(n_itens)
+  dplyr:: arrange(n_itens)%>%
+  head()
 
 ## Decrescente
 Vendas_A %>%
-  dplyr:: arrange(desc(n_itens))
+  dplyr:: arrange(desc(n_itens))%>%
+  head()
 
 ## Decrescente de n_itens E ordema alfabetica de filial
 Vendas_A %>%
   dplyr:: arrange(-n_itens) %>%
-  dplyr:: arrange(filial)
-
+  dplyr:: arrange(filial)%>%
+  head()
 ```
+
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
 
 #### Função **mutate()**
 
@@ -291,10 +331,16 @@ library(dplyr)
 Vendas_A %>%
   dplyr:: mutate(VM = valor_compra/n_itens) %>%
   dplyr:: select(VM, valor_compra, n_itens) %>%
-  dplyr:: arrange(VM)
+  dplyr:: arrange(VM)%>%
+  head()
 ```
 
 O mutate acrescenta novas colunas aos dados originais, ja o transmute cria novas colunas apartir dos dados
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
 
 #### Função **summarize()**
 
@@ -322,6 +368,12 @@ Vendas_A %>%
   dplyr:: summarise(cupons_distintos = n_distinct(cupom))
 
 ```
+
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
 
 #### Função **grupo_by()**
 
@@ -368,6 +420,8 @@ Vendas_A %>%
 
 ```
 
+
+
 :::: progress
 ::: {.progress-bar style="width: 100%;"}
 :::
@@ -377,16 +431,37 @@ Vendas_A %>%
 
 Utilizar o banco Vendas_A
 
--  1)  ordenar os dados pelo n_itens e valor_compra
--  2)  filtrar valor_compra maior q 150
--  3)  exibe a selecao com filial no inicio
--  4)  cria a variavel valor Medio VM: valor_compra/n_itens)
--  5)  arrendamanento pra uma casa decimal de VM
--  6)  selecionar filial, n_itens, valor_compra e VM no final
--  7)  agrupar por filial
--  8)  calcular media, mediana, desvio, minimo e maximo
+-   
 
+    1)  ordenar os dados pelo n_itens e valor_compra
 
+-   
+
+    2)  filtrar valor_compra maior q 150
+
+-   
+
+    3)  exibe a selecao com filial no inicio
+
+-   
+
+    4)  cria a variavel valor Medio VM: valor_compra/n_itens)
+
+-   
+
+    5)  arrendamanento pra uma casa decimal de VM
+
+-   
+
+    6)  selecionar filial, n_itens, valor_compra e VM no final
+
+-   
+
+    7)  agrupar por filial
+
+-   
+
+    8)  calcular media, mediana, desvio, minimo e maximo
 
 ```{r exercicio1a, message=FALSE, warning=FALSE}
 Vendas_A %>%
@@ -423,6 +498,10 @@ A importância da apresentação dos dados é fundamental no início da faxina d
 
 Para a apresentação dos dataset contamos com alguns pacotes na linguagem R que possibilitam a apresentação de tabelas de maneira bastante satisfatória (de forma elegante e até interativa).
 
+|           Pacote DT: datatable         |
+|:--------------------------------------:|
+| ![](images/pacote_DT.png){width="180"} |
+
 O **pacote DT** é uma excelente opção quando se trata de uma apresentação rápida, geral e dinâmica sobre a base de dados.
 
 O pacote DT fornece uma interface R para a biblioteca JavaScript **DataTables**. Objetos de dados R (matrizes ou quadros de dados) podem ser exibidos como tabelas em páginas HTML, e DataTables fornece filtragem, paginação, classificação e muitos outros recursos nas tabelas.
@@ -447,6 +526,10 @@ datatable(mercado,
 ## Identificar os Tipos de Variáveis
 
 Utilizamos a função **diagnose()**, do **paocte dlookr** na linguagem R, para identificar os tipos de variáveis para análise.
+
+|               Pacote dlookr                |
+|:------------------------------------------:|
+| ![](images/pacote_dlookr.png){width="180"} |
 
 A função diagnose() da biblioteca dlookr que retorna por variável qual o tipo dela, contagem de valores faltantes, frequência de faltantes em relação à base toda.
 
@@ -486,6 +569,10 @@ prop.table(table(mercado2$LOCAL))*100
 
 O **pacote gtsummary** fornece uma maneira elegante e flexível de criar tabelas analíticas e de resumo prontas para publicação usando a linguagem de programação R.
 
+|             Pacote gtsummary                  |
+|:---------------------------------------------:|
+| ![](images/pacote_gtsummary.png){width="180"} |
+
 A função **tbl_summary()** calcula estatísticas descritivas para variáveis contínuas, categóricas e dicotômicas em R e apresenta os resultados em uma tabela de resumo bonita e personalizável, pronta para publicação.
 
 ```{r contigencia1, message=FALSE, warning=FALSE}
@@ -517,7 +604,6 @@ mercado %>%
 ::::
 
 ## Variáveis Quantitativas
-
 ### Medidas Resumo Geral
 
 A função mais famosa para a estatística descritiva no R, é a chamada de summary(), que dá a amplitude dos dados.
@@ -547,6 +633,10 @@ summary(mercado2$SALARIO)
 ### Análise Geral
 
 O **pacote skimr** é um função que nos fornece medidas resumo de variáveis de uma base de dados de interesse. Ele pode ser visto como uma alternativa mais completa para a função **summary()** do R Base para gerar uma tabela geral sobre a base de dados, fornecendo um primeiro olhar sobre o fenômeno estudado.
+
+|            Pacote skimr                   |
+|:-----------------------------------------:|
+| ![](images/pacote_skimr.png){width="180"} |
 
 ```{r skim1, message=FALSE, warning=FALSE}
 library(skimr)
@@ -593,7 +683,6 @@ hist(mercado$SALARIO,
 ```
 
 
-
 ```{r box2, message=FALSE, warning=FALSE}
 library(magrittr)
 library(dplyr)
@@ -637,6 +726,7 @@ stem(mercado2$SALARIO)
 #### Diagrama de Dispersão
 
 A função **pairs.panels()** do **pacote psych** no R gera um figura com os gráficos de dispersão 2 a 2, os histogramas de cada variável e as correlações das variaveis 2 a 2.
+
 
 ```{r corr1, message=FALSE, warning=FALSE}
 
