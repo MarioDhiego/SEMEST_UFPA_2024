@@ -1,0 +1,39 @@
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+# Referências Bibliográficas {.unnumbered}
+
+
+DRAPER, N. R.; SMITH, H. Applied Regression Analysis. New York: John Wiley & Sons, 1981.
+
+ELIAN, Silva. N. Análise de Regressão. São Paulo: IME, 1998.
+
+HOERL, A. E., KENNARD, R. W. Ridge Regression: Applications to nonorthogonal problems. Technometrics, v. 12, n. 1, p. 69-82, 1970a.   
+
+HOERL, A. E., KENNARD, R. W. Ridge Regression: Biased estimation for nonorthogonal problems. Technometrics, v. 12, n. 1, p. 55-68, 1970b. 
+
+HAIR JR, J. F. et al. Análise multivariada de dados. 5. ed. Porto Alegre: Bookman, 2005.
+
+HOERL, A. E.., KENNARD, R. W.; BALDWIN, K. F. Ridge Regression: some simulation. Communications in Statistics-Theory and Methods, v. 4, n. 2, p. 105-124, 1975. 
+
+NETER, J.; WASSERMAN, W. Applied linear statistical models. Illinois: Richard D. Irwin, 1974.
+
+NETER, J.; WASSERMAN, W.; KUTNER, M. H.; NACHTSHELM, C. J. Applied Linear Regression Models. 3ª ed., Times Mirror Hiher Group, Inc., Boston, 1996.
+
+
+VALENTE, M. D. R.; PINHEIRO, J. G.; QUEIROZ, W. T. Modelo de predição para o volume total de Quaruba (Vochysia inundata ducke) via análise de fatores e regressão. Revista Árvore, Viçosa, v. 35, n. 2, p. 307-317, 2011. Disponível em: http://www.scielo.br/pdf/rarv/v35n2/a15v35n2.pdf
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::

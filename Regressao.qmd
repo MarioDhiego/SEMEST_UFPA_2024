@@ -1,0 +1,207 @@
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+# Modelo de Regressão Linear
+## Regressão Simples
+
+A Técnica de **Regressão Linear** é uma das mais conhecida e utilizadas na Estatística. È a porta de entrada para diversos modelos preditivos mais sofisticados, já que muitos destes usam conceitos também utilizados na regressão linear. Essencialmente, a regressão linear pode ser utilizada para prever o valor de uma variável quantitativa (**dependente**) em função das outras variáveis (**independentes ou preditoras**).
+
+## Data Set
+
+Para ilustrar a regressão simples, vamos começar com um exemplo em que queremos estudar a relação entre idade (**variável preditora** $X_{1}$) e Salário (**variável dependente Y**) com uma amostra de 80 funcionários do Supermercadp Formosa.
+
+-   Local: Supermercado Formosa
+-   Amostra: 80 pessoas
+-   ID : Indetidade do Funcionário
+-   EDUCAÇÃO : Nível Educacional do Funcionário
+-   CARGO : Cargo do Funcionário
+-   LOCAL : Local onde Atua o Funcionário
+-   IDADE : Idade em anos Completos do Funcionário
+-   TEMPOCASA : Tempo de Casa
+-   SALARIO : Salário Mensal do Funcionário em R\$
+
+Para ilustrar a regressão simples, vamos começar com um exemplo em que queremos estudar a relação entre idade (**variável preditora** $X_{1}$) e Salário (**variável dependente Y**) com uma amostra de 80 funcionários do Supermercadp Formosa.
+
+Vamos assumir que o salário varia linearmente conforme a idade. Matematicamente, diremos que o salário é uma função linear da idade: salário = $Salário \ = \ \beta_{0}+\beta_{1}*Idade$. Entretanto, sabemos que esta relação não é determinística, isto é, não necessariamente a diferença salarial entre uma pessoa com 30 anos e outra com 31 será $\beta_{1}$. Isso ocorre porque há outros fatores que interferem no salário e não estão incluídos no modelo. Este ruído será representado por um termo de erro do modelo:
+
+```{r tex1, message=FALSE, warning=FALSE}
+
+# Pacote para Linguagem LaTeX
+library(tinytex)
+
+```
+
+|               Pacote tinytex                |
+|:-------------------------------------------:|
+| ![](images/pacote_tinytex.png){width="180"} |
+
+$$ Salário = \beta_{0} + \beta_{1} * Idade + erro$$
+
+NO modelo de regressão simples tradicional, o termo de erro tem valor esperado igual a zero, e isso implica no salário médio das pessoas com determinada idade, denotado por E(Salário), dado pela parte determinística da equação:
+
+$$ E(Salário) = \beta_{0} + \beta_{1} * Idade$$
+
+$\beta_{0} + \beta_{1}$ são parâmetros do modelo e podem ser estimados a partir dos dados da amostra. NO exemplo , usaremos os dados amostrais para estimar esses parâmetros. o Primeiro passo e construir um gráfico de dispersão em que colocamos a idade no eixo x e o salário no eixo y.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Visualização de Dados
+
+A construção de gráficos no R foi revolucionada com a criação do pacote ggplot2, fruto da tese de doutorado do **Hadley Wickham**. Essa revolução teve base na filosofia que Hadley adotou para responder a pergunta “O que é um gráfico estatístico?”.
+
+Em 2005, o estatístico norte-americano Leland Wilkinson publicou o livro The Grammar of graphics (A gramática dos gráficos, em português), uma fonte de princípios fundamentais para a construção de gráficos estatísticos. No livro, ele defende que um gráfico é o mapeamento dos dados em atributos estéticos (posição, cor, forma, tamanho) de formas geométricas (pontos, linhas, barras, caixas).
+
+A partir dessa definição, Hadley escreveu A **Layered Grammar of Graphics** (Uma gramática em camada dos gráficos), acrescentando que os elementos de um gráfico (dados, sistema de coordenadas, rótulos, anotações, entre outros) são as suas camadas e que a construção de um gráfico se dá pela sobreposição dessas camadas.
+
+Essa é a essência do ggplot2: construir um gráfico camada por camada.
+
+|               Pacote ggplot2                |
+|:-------------------------------------------:|
+| ![](images/pacote_ggplot2.png){width="180"} |
+
+No ggplot2, os gráficos são construídos camada por camada, sendo a primeira delas dada pela função ggplot() (repare que não tem o “2”). Essa função recebe um data frame e cria a camada base do gráfico, o nosso canvas, onde acrescentaremos todos os outros elementos (camadas).
+
+Porém, o ggpplot2 não possui propriedades interativas avançadas. Com isso se utiliza um pacote feito em javascript chamado Plotly.
+
+|               Pacote plotly                |
+|:------------------------------------------:|
+| ![](images/pacote_plotly.png){width="180"} |
+
+O pacote **plotly** é uma ferramenta moderna para criar visualizações interativas e de alta qualidade. Aumenta o apelo visual e o usuário interação de seus gráficos, tornando o processo de exploração de dados mais perspicaz.
+
+A função recebe um gráfico ggplot2 como argumento e retorna uma versão interativa dele. Isso significa que você pode fazer seus gráficos interativo com uma única linha de código! **ggplotly()**
+
+### Gráfico de Dispersão Geral
+
+O script utilizado para gerar o gráfico de dispersão no R é mostrado a seguir:
+
+```{r Dispersao1, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+
+mercado <- read_excel('mercado.xlsx')
+
+Plot2 <- ggplot(mercado, aes(x=IDADE, y= SALARIO))+
+  geom_point(size = 2.5, 
+             pch = 21, 
+             col = 'black',
+             fill = 'red')+
+  geom_smooth(method="lm", 
+              se= TRUE)+
+  theme_bw()+
+  labs(x="IDADE", 
+       y="SALÁRIO", 
+       title="Diagrama de Dispersão Geral", 
+       subtitle = "Renda Salarial")
+ggplotly(Plot2)
+```
+
+O gráfico mostra originalmente um ponto muito distante dos demais, no qual é o salário de um dos diretores da Empresa que ganha **R\$ 12.465,80**
+
+```{r base2a, message=FALSE, warning=FALSE}
+library(readxl)
+
+mercado2 <- read_excel('mercado2.xlsx')
+
+```
+
+O script utilizado para gerar o gráfico de dispersão no R sem a observação 69 correspondente a (**60 anos; R\$ 12.465,80**) é mostrado a seguir:
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+### Gráfico de Dispersão Sem obs: 69º
+
+```{r Dispersao2, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+
+mercado2 <- read_excel('mercado2.xlsx')
+
+Plot3 <- ggplot(mercado2, aes(x=IDADE, y= SALARIO))+
+  geom_point(size = 2.5, 
+             pch = 21, 
+             col = 'black',
+             fill = 'red')+
+  geom_smooth(method="lm", 
+              se= TRUE)+
+  theme_bw()+
+  labs(x="IDADE", 
+       y="SALÁRIO", 
+       title="Diagrama de Dispersão sem Outliers", 
+       subtitle = "Renda Salarial")
+ggplotly(Plot3)
+```
+
+O gráfico mostra que há uma tendência de crescimento do salário quando a idade aumenta, ilustrado pela reta inclinada, que chamaremos de reta de mínimos quadrados.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::
+
+## Reta de Mínimos Quadrados
+
+A seguir, vamos ver como encontrar a reta que estabelece uma relação entre as duas variáveis:
+
+$$ \hat{y} = \hat{\beta_{0}} + \hat{\beta_{1}x}$$
+
+O símbolo "\^" em $\beta_{0}$ e $\beta_{1}$ indica que estamos estimando os parâmetros do modelo populacional , já que contaremos apenas com dados amostrais no nosso cálculo. $\hat{y}$ é o valo previsto do salário médio dos funcionários com idade "x".
+
+O objetivo é obter estimadores $\hat{\beta_{0}}$ e $\hat{\beta_{1}}$, isto é, a reta, que melhor se ajusta aos dados. Como critério de ajuste utilizaremos a "Soma de Quadrados dos Resíduos" (SQR), definida a seguir. O resíduo da7 observação "i" da amostra é a diferença entre o seu valor observado $y_{i}$ e o valor previsto $\hat{y}_{i}$.
+
+$$ SQR = min \sum_{i=1}^{n} (y_{i}-\hat{y}_{i})^{2} = min \sum_{i=1}^{n} e_{i}^{2}$$
+
+em que $e_{i}$ é o resíduo da observação "i".
+
+## Coeficiente de Regressão Linear
+
+Para fazer uma análise de regressão no R, usaremos a função *lm*, do **pacote basic**, e os dados do Supermercado Formosa. A sintaxe para rodar a regressão linear simples é **lm(y\~x)**.
+
+### Tabela de Resultado Padrão
+
+Uma das tarefas mais corriqueiras dos analista de dados é a produção de tabelas. Seja para apresentar frequências, estatísticas descritivas (media, mediana, moda, etc), seja para apresentar resultados de modelos de regressão.
+
+Tabela de resultados referente ao modelo de regressão linear simples com n=80.
+
+```{r model1, message=FALSE, warning=FALSE}
+
+Modelo1 = lm(mercado$SALARIO~mercado$IDADE)
+summary(Modelo1)
+```
+
+Na saída acima podemos ver os estimadores $\hat{\beta_{0}}$ e $\hat{\beta_{1}}$ (estimate), seus erros padrão (Std. Error), a estatística t (t value) e o valor-p do teste de hipótese (Pr(\>\|t\|)).
+
+Os etimadores $\hat{\beta_{0}}$ e $\hat{\beta_{1}}$ possuem um erro padrão que depende de vários fatores, entre eles o tamanho da amostra e o desvio-padrão do erro do modelo. Com esses valores podemos construir uma estimativa intervalar, com determinado nível de confiança, para os parâmetros populacionais desconhecidos $\beta_{0}$ e $\beta_{1}$.
+
+```{r model2, message=FALSE, warning=FALSE}
+
+Modelo2 = lm(mercado2$SALARIO~mercado2$IDADE)
+summary(Modelo2)
+```
+
+A presença desse outlier tem consequências importantes para o resultado da regressão. Os valores de $\hat{\beta}_{0}$ e $\hat{\beta}_{1}$ mudam de (1818,11; 79,59) para (2165,81; 71,08), respectivamente, o que faz com que os valores previstos também mudem, especialmente nos extremos, isto é, para idades muito baixas e muito altas. Isso significa que esse ponto, além de **outlier**, é um **ponto influente**, isto é, a presença dele muda as estimativas do modelo.
+
+:::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+::::

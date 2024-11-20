@@ -1,2 +1,2 @@
-# Semana_Estatistica_2024
-Será criado um script em linguagem R, para o minicurso em Analise de dados, apresentado durante a Semana de Estatística da UFPA em novembro de 2024..
+# Modelo_Regressao1
+Um script em linguagem de Programação R para apresentar os fundamentos estatístico sobre Modelos de Regressão Linear Simples e Múltiplo sob a perspectiva de Machine Learning. 
